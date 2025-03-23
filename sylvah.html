@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYLVAH GROUP</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-y: auto; /* Enables vertical scrolling */
+            overflow-x: hidden; /* Prevents horizontal scrolling */
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align content to the top */
+            align-items: center;
+            overflow-x: hidden;
+            background: linear-gradient(45deg, #0f0f0f, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .top-left-logo {
+            position: absolute;
+            top: -30px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10; /* Ensure the logo is above other content */
+        }
+
+        .top-left-logo img {
+            height: 200px; /* Adjust size as needed */
+        }
+
+        .content {
+            flex-grow: 1; /* Ensures content takes up remaining space */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Align content to the top */
+            position: relative; /* Needed for absolute positioning of child elements */
+            padding-top: 50px; /* Add padding to prevent overlap with the logo */
+        }
+
+        .text-container {
+            position: absolute; /* Overlay the text on the image */
+            top: 2%; /* Adjust vertical position */
+            left: 3%; /* Position text on the left */
+            color: white;
+            font-size: 150px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            text-align: left; /* Align text to the left */
+            white-space: pre-line; /* Ensures "Vision" appears on the next line */
+            line-height: 1.1; /* Reduce space between lines */
+            z-index: 2; /* Ensure the text is above the image */
+            
+        }
+
+        .centered-image {
+            max-width: 90%; /* Ensures image scales with the screen */
+            max-height: 80vh; /* Adjust based on your needs */
+            height: auto; /* Maintains aspect ratio */
+            display: block;
+            margin: 0 auto; /* Centers the image */
+            position: relative; /* Needed for z-index to work */
+            z-index: 1; /* Ensure the image is below the text */
+        }
+
+        .below-image-text {
+            margin-top: 20px; /* Adds space between image and text */
+            font-size: 20px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center; /* Center the text */
+            z-index: 2; /* Ensure this text is above the image */
+            font-weight: bold;
+        }
+
+        /* Fullscreen Video Overlay */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-overlay video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hide-video {
+            animation: fadeOut 1s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        .typing-container {
+            font-size: 30px;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            text-align: center;
+            white-space: pre-line; /* Ensures "Vision" appears on the next line */
+            overflow: hidden;
+        }
+
+        .black-container {
+            align-items: center; /* Centers content */
+            flex-direction: column; /* Keeps content stacked correctly */
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            padding-bottom: 20px; /* Adds space for social icons */
+            gap: 20px;
+            width: 100%;
+            margin-top: 10px;
+            height: auto; /* Small height */
+            position: relative; /* Needed for absolute positioning of the image */
+            overflow: hidden; /* Hide overflowing parts of the image */
+            padding-left: 320px; /* Add padding to make space for the image */
+            flex-direction: column;
+        }
+
+        .black-container img {
+            height: 400px; /* Large image */
+            width: auto;
+            position: absolute; /* Position the image absolutely */
+            
+            top: 40%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust vertical centering */
+            
+        }
+        .logocon img{
+            left:230px;
+        }
+
+        .columns-wrapper {
+            display: flex;
+            gap: 120px; /* Add space between the columns */
+            margin-left: 490px; /* Push the columns to the right */
+        }
+
+        .column {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px; /* Add space between links */
+            text-align: center;
+        }
+
+        .column a {
+            color: white; /* Link color */
+            text-decoration: none; /* Remove underline */
+            font-size: 25px; /* Adjust font size */
+            font-family: 'Poppins', sans-serif;
+            transition: transform 0.3s ease-in-out; /* Smooth transition */
+            
+        }
+
+        .column a:hover {
+            transform: scale(1.1); /* Slight zoom effect */
+        }
+        .social-icons {
+            display: flex;
+            gap: 20px;  /* Adjust spacing */
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            margin-right: 310px;
+        }
+
+        .social-icons a {
+            display: flex;
+            width: 60px; /* Adjust icon size */
+            height: 60px;
+            transition: none; /* Prevent unwanted hover effects */
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            background: transparent; /* Ensure no background blending */
+        }
+
+        .social-icons img {
+            width: 35px; /* Adjust icon size */
+            height: auto;
+            top: 260px;
+            transition: transform 0.3s ease-in-out /* Smooth zoom effect */
+        }
+
+        .social-icons a:hover img {
+            transform: scale(1.2); /* Slight zoom */
+            
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 470px;
+            transform: translateY(0); /* Default position */
+            width: 70%;
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            padding: 15px 0;
+            z-index: 1000; /* Ensure it's above other elements */
+            display: flex;
+            justify-content: center; /* Center align the nav items */
+            border-radius: 20px 0 0 20px;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 1s ease-in-out; /* Smooth fade-in */
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 30px; /* Space between links */
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-family: 'Poppins', sans-serif;
+            padding: 0px 20px;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transition */
+            display: inline-block; /* Ensures transform applies correctly */
+            margin-right: 20px;
+        }
+
+        .navbar ul li a:hover {
+            color: #ffffff; /* Highlight effect on hover */
+            transform: scale(1.2); /* Smooth zoom effect */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Video Overlay -->
+    <div class="video-overlay" id="videoOverlay">
+        <video id="introVideo" autoplay muted>
+            <source src="sylvah.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="top-left-logo">
+        <img src="IMG_1387.PNG" alt="Sylvah Logo">
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="sylvah.html">Home</a></li>
+            <li><a href="">Properties</a></li>
+            <li><a href="vision.html">Our Vision</a></li>
+            <li><a href="whycus.html">Why Choose Us?</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="text-container">
+            <span id="typing-text"></span>
+        </div>
+        <img src="home.jpg" alt="Centered Image" class="centered-image">
+        <p class="below-image-text">A company of real estate of Belgaum.</p>
+        <img src="home.jpg" alt="Centered Image" class="centered-image">
+        <img src="home.jpg" alt="Centered Image" class="centered-image">
+        
+        <div class="black-container">
+            <div class="logocon">
+                <img src="IMG_1387.PNG" alt="Logo">
+            </div>
+            <div class="columns-wrapper">
+                <div class="column">
+                    <a href="wisg.html">What is Sylvah Group?</a>
+                    <a href="vision.html">Our vision</a>
+                </div>
+                <div class="column">
+                    <a href="whycus.html">Why choose us?</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/1BFcQUkLVa/?mibextid=wwXIfr" target="_blank">
+                    <img src="facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/sylvah_group?igsh=cGg2NndnaHBic3o1" target="_blank">
+                    <img src="insta.png" alt="Instagram">
+                </a>
+                <a href="https://" target="_blank">
+                    <img src="x.png" alt="X">
+                </a>
+                <a href="mailto:Sylvahgroup@gmail.com">
+                    <img src="email.png" alt="Email">
+                </a>
+                <a href="https://youtube.com/@sylvahgroup?si=dMRBmXQa262bGRyP" target="_blank">
+                    <img src="youtube.png" alt="Youtube">
+                </a>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const videoOverlay = document.getElementById('videoOverlay');
+            const introVideo = document.getElementById('introVideo');
+            const navbar = document.querySelector('.navbar');
+    
+            if (sessionStorage.getItem('videoPlayed')) {
+                // Hide video overlay and show navbar immediately
+                videoOverlay.style.display = 'none';
+                navbar.style.opacity = '1';
+                setTimeout(startTypingEffect, 500); // Start typing effect immediately
+            } else {
+                // Play video and set session flag
+                sessionStorage.setItem('videoPlayed', 'true');
+                introVideo.play();
+                
+                introVideo.addEventListener('ended', function () {
+                    videoOverlay.classList.add('hide-video');
+                    navbar.style.opacity = '1';
+                    setTimeout(startTypingEffect, 500);
+                });
+            }
+        });
+    
+        function startTypingEffect() {
+            const text = "Driven by\nVision."; // "\n" will be handled via CSS
+            const typingText = document.getElementById('typing-text');
+            let index = 0;
+    
+            function typeCharacter() {
+                if (index < text.length) {
+                    if (text[index] === "\n") {
+                        typingText.innerHTML += "<br>"; // Handle line break
+                    } else {
+                        typingText.innerHTML += text[index];
+                    }
+                    index++;
+                    setTimeout(typeCharacter, 110); // Adjust speed
+                }
+            }
+    
+            typeCharacter();
+        }
+
+    </script>
+</body>
+</html>
