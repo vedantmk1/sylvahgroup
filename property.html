@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYLVAH GROUP - Properties</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            overflow-x: hidden;
+            background: linear-gradient(45deg, #0f0f0f, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .top-left-logo {
+            position: absolute;
+            top: -70px;
+            left: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .top-left-logo img {
+            height: 300px;
+        }
+
+        .content {
+            flex-grow: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            padding-top: 50px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 47%;
+            transform: translateY(0); /* Default position */
+            width: 55%;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+            padding: 15px 0;
+            z-index: 1000; /* Ensure it's above other elements */
+            display: flex;
+            justify-content: center; /* Center align the nav items */
+            border-radius: 0 0 0 90px;
+            opacity: 1; /* Now visible */
+            transition: opacity 1s ease-in-out; /* Smooth fade-in */
+            text-decoration: underline;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.8); /* Soft shadow effect */
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 30px; /* Space between links */
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 110%;
+            font-family: 'Poppins', sans-serif;
+            padding: 0px 20px;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transition */
+            display: inline-block; /* Ensures transform applies correctly */
+            margin-right: 20px;
+            text-decoration: underline;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5); /* Glow effect */
+        }
+
+        .navbar ul li a:hover {
+            color: #0e5ddb; /* Highlight effect on hover */
+            transform: scale(1.2); /* Smooth zoom effect */
+            text-decoration: underline;
+            text-shadow: 3px 3px 10px rgba(14, 93, 219, 0.8); /* Stronger glow effect */
+        }
+
+        /* Property Page Specific Styles */
+        .properties-header {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 80px;
+            text-align: center;
+            margin: 50px 0;
+            width: 100%;
+        }
+
+        /* Rest of your existing styles from the black container down */
+        .black-container {
+            align-items: center;
+            flex-direction: column;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            padding-bottom: 20px;
+            gap: 20px;
+            width: 100%;
+            margin-top: 10px;
+            height: auto;
+            position: relative;
+            overflow: hidden;
+            padding-left: 320px;
+            flex-direction: column;
+        }
+
+        .black-container img {
+            height: 400px;
+            width: auto;
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+        .logocon img{
+            left:230px;
+        }
+
+        .columns-wrapper {
+            display: flex;
+            gap: 120px;
+            margin-left: 490px;
+        }
+
+        .column {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .column a {
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            font-family: 'Poppins', sans-serif;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .column a:hover {
+            transform: scale(1.1);
+        }
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            margin-right: 310px;
+        }
+
+        .social-icons a {
+            display: flex;
+            width: 60px;
+            height: 60px;
+            transition: none;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .social-icons img {
+            width: 35px;
+            height: auto;
+            top: 260px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
+
+        /* Property Search Container */
+         /* Property Search Container */
+         .property-search-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .search-header h2 {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .search-bar {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .search-button {
+            padding: 0 25px;
+            background: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .search-button:hover {
+            background: #3a8fd4;
+        }
+
+        .property-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-group label {
+            display: block;
+            color: white;
+            margin-bottom: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .filter-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .budget-range {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .budget-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .budget-range span {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .filter-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .filter-button:hover {
+            background: #3a8fd4;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .property-filters {
+                flex-direction: column;
+            }
+            
+            .search-bar {
+                flex-direction: column;
+            }
+            
+            .search-bar input {
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+            
+            .search-button {
+                border-radius: 8px;
+                padding: 15px;
+            }
+        }
+
+        .properties-heading {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            /* Additional styling if needed */
+            margin: 20px 0; /* Example spacing */
+            text-align: center; /* Example alignment */
+            font-size: 520%;
+        }
+    
+
+        /* Add all other property-related styles from your original CSS here */
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url('fonts/Poppins-Regular.woff2') format('woff2'),
+                url('fonts/Poppins-Regular.woff') format('woff'),
+                url('fonts/Poppins-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .home-button {
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg); /* ✅ Rotates text */
+            background: rgba(0, 0, 0, 0.399); /* Semi-transparent background */
+            color: #ffffff;
+            border: #ffffff;
+            padding: 18px 15px;
+            font-size: 18px;
+            
+            border-radius: 25px 25px 25px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.3);
+            writing-mode: vertical-rl; /* ✅ Makes text vertical */
+            text-align: center;
+        }
+
+        .home-button:hover {
+            background-color: #000000;
+            transform: translateY(-50%) scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-left-logo">
+        <img src="IMG_1387.PNG" alt="Sylvah Logo">
+    </div>
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="sylvah.html">Home</a></li>
+            <li><a href="lyp.html">List Your Property</a></li>
+            <li><a href="savisit.html">Schedule a Visit</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1 class="properties-header">Our Properties</h1>
+        
+        <!-- Property Search Section -->
+        <div class="property-search-container">
+            <div class="search-header">
+                <h2>Find Your Perfect Property</h2>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search by property name, location, or features...">
+                <button class="search-button">Search</button>
+            </div>
+            
+            <div class="property-filters">
+                <div class="filter-group">
+                    <label>Transaction Type</label>
+                    <select>
+                        <option value="all">All</option>
+                        <option value="buy">Buy</option>
+                        <option value="rent">Rent</option>
+                        <option value="lease">Lease</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Location</label>
+                    <select>
+                        <option value="all">All Areas</option>
+                        <option value="north">North Belgaum</option>
+                        <option value="south">South Belgaum</option>
+                        <option value="east">East Belgaum</option>
+                        <option value="west">West Belgaum</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Property Type</label>
+                    <select>
+                        <option value="all">All Types</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="villa">Villa</option>
+                        <option value="plot">Plot</option>
+                        <option value="commercial">Commercial</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Budget (₹)</label>
+                    <div class="budget-range">
+                        <input type="number" placeholder="Min" class="budget-input">
+                        <span>to</span>
+                        <input type="number" placeholder="Max" class="budget-input">
+                    </div>
+                </div>
+                
+                <button class="filter-button">Apply Filters</button>
+            </div>
+        </div>
+
+        <!-- Footer Section (same as your black-container) -->
+        <div class="black-container">
+            <div class="logocon">
+                <img src="IMG_1387.PNG" alt="Logo">
+            </div>
+            <div class="columns-wrapper">
+                <div class="column">
+                    <a href="wisg.html">What is Sylvah Group?</a>
+                    <a href="vision.html">Our vision</a>
+                </div>
+                <div class="column">
+                    <a href="whycus.html">Why choose us?</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/1BFcQUkLVa/?mibextid=wwXIfr" target="_blank">
+                    <img src="Facebook1.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/sylvah_group?igsh=cGg2NndnaHBic3o1" target="_blank">
+                    <img src="instagram1.png" alt="Instagram">
+                </a>
+                <a href="https://" target="_blank">
+                    <img src="x.png" alt="X">
+                </a>
+                <a href="mailto:Sylvahgroup@gmail.com">
+                    <img src="email1.png" alt="Email">
+                </a>
+                <a href="https://youtube.com/@sylvahgroup?si=dMRBmXQa262bGRyP" target="_blank">
+                    <img src="youtube2.png" alt="Youtube">
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- ✅ Vertical Home Button -->
+    <button class="home-button" onclick="window.location.href=''">Logout</button>
+
+    <script>
+        // Your JavaScript for the property page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchButton = document.querySelector('.search-button');
+            const filterButton = document.querySelector('.filter-button');
+            
+            searchButton.addEventListener('click', function() {
+                const searchInput = document.querySelector('.search-bar input');
+                console.log('Searching for:', searchInput.value);
+                // Add search functionality
+            });
+            
+            filterButton.addEventListener('click', function() {
+                // Add filter functionality
+            });
+        });
+    </script>
+</body>
+</html>

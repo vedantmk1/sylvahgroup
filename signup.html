@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYLVAH GROUP - Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #0f0f0f, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .signup-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .logo {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        .signup-title {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            color: white;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #4facfe;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .terms {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        .terms a {
+            color: #4facfe;
+            text-decoration: none;
+        }
+
+        .login-option {
+            color: white;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .login-option a {
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .home-button {
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg); /* ✅ Rotates text */
+            background: rgba(0, 0, 0, 0.399); /* Semi-transparent background */
+            color: #ffffff;
+            border: #ffffff;
+            padding: 18px 15px;
+            font-size: 18px;
+            
+            border-radius: 25px 25px 25px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.3);
+            writing-mode: vertical-rl; /* ✅ Makes text vertical */
+            text-align: center;
+        }
+
+        .home-button:hover {
+            background-color: #000000;
+            transform: translateY(-50%) scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <img src="IMG_1387.PNG" alt="SYLVAH GROUP Logo" class="logo">
+        <h1 class="signup-title">Create Account</h1>
+        <form>
+            <div class="input-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Create Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+            </div>
+            
+            <button type="submit" class="signup-btn">Sign Up</button>
+            
+            
+            
+            <div class="login-option">
+                Already have an account? <a href="login.html">Log in</a>
+            </div>
+        </form>
+    </div>
+    <!-- ✅ Vertical Home Button -->
+    <button class="home-button" onclick="window.location.href='sylvah.html'">Home</button>
+</body>
+</html>
