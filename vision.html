@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Vision - Sylvah Group</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(45deg, #0f0f0f, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .top-left-logo {
+            position: absolute;
+            top: -20px;
+            left: 10px;
+        }
+
+        .top-left-logo img {
+            height: 150px;
+        }
+
+        /* ✅ Circle Wrapper - Controls Animation */
+        .circle-container {
+            position: absolute;
+            top: -100vh;
+            animation: dropDown 1.5s ease-out forwards;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes dropDown {
+            0% { top: -100vh; }
+            100% { top: 50%; transform: translateY(-50%); }
+        }
+
+        /* ✅ Main Circle with Hover Effect */
+        .circle {
+            width: 95vh;
+            height: 95vh;
+            border-radius: 50%;
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.066), #ffffff44);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 25px;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+            transition: transform 0.7s ease-in-out; /* ✅ Smooth hover effect */
+        }
+
+        /* ✅ Hover Zoom Effect */
+        .circle:hover {
+            transform: scale(1.1);
+        }
+
+        /* ✅ Text Fade-in Effect */
+        .circle h2, .circle p {
+            opacity: 0;
+            animation: fadeInText 1s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .circle h2 {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 1px;
+            margin-top: 5px;
+        }
+
+        /* ✅ Home Button - Vertical */
+        .home-button {
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg); /* ✅ Rotates text */
+            background: rgba(0, 0, 0, 0.399); /* Semi-transparent background */
+            color: #ffffff;
+            border: #ffffff;
+            padding: 18px 15px;
+            font-size: 18px;
+            
+            border-radius: 25px 25px 25px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.3);
+            writing-mode: vertical-rl; /* ✅ Makes text vertical */
+            text-align: center;
+        }
+
+        .home-button:hover {
+            background-color: #000000;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                padding: 20px 10px;
+                overflow-y: auto;
+            }
+
+            .top-left-logo {
+                
+                height: 120px;
+            }
+
+            .top-left-logo img {
+                height: 100px;
+            }
+
+            .circle-container {
+                position: static;
+                width: 100%;
+                height: auto;
+                margin: 20px 0;
+                animation: none;
+                transform: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .circle {
+                width: 90vw;
+                height: auto;
+                border-radius: 20px;
+                font-size: 16px;
+                padding: 25px 15px;
+            }
+
+            .circle h2 {
+                font-size: 1.4em;
+            }
+
+            .home-button {
+                font-size: 14px;
+                padding: 12px;
+                position: static;
+                transform: none;
+                writing-mode: horizontal-tb;
+                margin-top: 20px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .circle {
+                font-size: 14px;
+                padding: 20px 10px;
+                margin-top: 10%;
+            }
+
+            .circle h2 {
+                font-size: 1.2em;
+            }
+
+            .top-left-logo img {
+                height: 120px;
+            }
+
+            .home-button {
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="top-left-logo">
+        <img src="IMG_1387.PNG" alt="Sylvah Logo">
+    </div>
+
+    <!-- ✅ Wrapped Circle for Animation -->
+    <div class="circle-container">
+        <div class="circle">
+            <h2>Our Vision</h2>
+            <p>To revolutionize the real estate experience in Belagavi by providing seamless, transparent, and technology-driven property solutions that empower buyers, sellers, and investors to make confident decisions.</p>
+        </div>
+    </div>
+
+    <!-- ✅ Vertical Home Button -->
+    <button class="home-button" onclick="window.location.href='sylvah.html'">Home</button>
+
+</body>
+</html>

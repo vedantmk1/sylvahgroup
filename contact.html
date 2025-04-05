@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Sylvah Group</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(45deg, #0f0f0f, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s infinite alternate ease-in-out;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .top-left-logo {
+            position: absolute;
+            top: -20px;
+            left: 10px;
+        }
+
+        .top-left-logo img {
+            height: 150px;
+        }
+
+        /* Circle Animation */
+        .circle-container {
+            position: absolute;
+            top: -100vh;
+            animation: dropDown 1.5s ease-out forwards;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes dropDown {
+            0% { top: -100vh; }
+            100% { top: 50%; transform: translateY(-50%); }
+        }
+
+        /* Contact Circle */
+        .circle {
+            width: 95vh;
+            height: 95vh;
+            border-radius: 50%;
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.066), #ffffff44);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+            transition: transform 0.7s ease-in-out;
+        }
+
+        /* Hover Zoom Effect */
+        .circle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Text Fade-in Effect */
+        .circle h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeInText 1s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Form Styling */
+        .contact-form {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeInText 1s ease-in-out forwards;
+            animation-delay: 1.2s;
+            
+        }
+
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid white; /* ✅ Thin white border */
+            border-radius: 5px;
+            font-size: 16px;
+            background: transparent;
+            color: white;
+            outline: none;
+            
+        }
+
+        /* Input Focus Effect */
+        .contact-form input:focus, 
+        .contact-form textarea:focus {
+            border-color: #00aaff; /* ✅ Changes border to blue on focus */
+        }
+
+        .contact-form textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        .contact-form button {
+            background-color: #0f3460;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #1a1a2e;
+        }
+
+        /* Contact Details */
+        .contact-details {
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeInText 1s ease-in-out forwards;
+            animation-delay: 1.4s;
+        }
+
+        .contact-details a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #16d55c;
+            color: black;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            transition: 0.3s;
+            opacity: 0;  /* Ensuring it starts hidden */
+            animation: fadeInText 1s ease-in-out forwards;
+            animation-delay: 1.2s; /* Appears after the form */
+        }
+
+        .whatsapp-button:hover {
+            background-color: #02a53e;
+        }
+
+        /* ✅ Home Button - Vertical */
+        .home-button {
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg); /* ✅ Rotates text */
+            background: rgba(0, 0, 0, 0.399); /* Semi-transparent background */
+            color: #ffffff;
+            border: #ffffff;
+            padding: 18px 15px;
+            font-size: 18px;
+            
+            border-radius: 25px 25px 25px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.3);
+            writing-mode: vertical-rl; /* ✅ Makes text vertical */
+            text-align: center;
+        }
+
+        .home-button:hover {
+            background-color: #000000;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+
+
+        /* ✅ Responsive Design */
+        @media (max-width: 768px) {
+            .circle {
+                width: 90vw;
+                height: auto;
+                border-radius: 20px;
+                padding: 25px 15px;
+            }
+
+            .circle h2 {
+                font-size: 1.5em;
+            }
+
+            .contact-form button,
+            .whatsapp-button {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .home-button {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .top-left-logo img {
+                height: 120px;
+                
+            }
+        }
+
+        @media (max-width: 480px) {
+            .circle {
+                padding: 20px 10px;
+            }
+
+            .circle h2 {
+                font-size: 1.3em;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .contact-form button,
+            .whatsapp-button {
+                font-size: 14px;
+            }
+
+            .home-button {
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="top-left-logo">
+        <img src="IMG_1387.PNG" alt="Sylvah Logo">
+    </div>
+
+    <div class="circle-container">
+        <div class="circle">
+            <h2>Contact Us</h2>
+
+            <!-- Contact Form -->
+            <form class="contact-form">
+                <input type="text" placeholder="Name" name="name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Inquiry</button>
+            </form>
+
+            <!-- Contact Details -->
+            <div class="contact-details">
+                <p>📞 <a href="tel:+918762237545">+91 8762237545</a></p>
+                <p>📧 <a href="mailto:Sylvahgroup@gmail.com">Sylvahgroup@gmail.com</a></p>
+            </div>
+
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me/918762237545" target="_blank" class="whatsapp-button">
+                💬 Chat on WhatsApp
+            </a>
+
+        </div>
+    </div>
+ <!-- ✅ Vertical Home Button -->
+ <button class="home-button" onclick="window.location.href='sylvah.html'">Home</button>
+</body>
+</html>
