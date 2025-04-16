@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYLVAH GROUP - Properties</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            overflow-x: hidden;
+            background: linear-gradient(45deg, #0f0f0f, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .top-left-logo {
+            position: absolute;
+            top: -70px;
+            left: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .top-left-logo img {
+            height: 300px;
+        }
+
+        .content {
+            flex-grow: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            padding-top: 10px;
+        }
+
+
+
+        /* Property Page Specific Styles */
+        .properties-header {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 80px;
+            text-align: center;
+            margin: 50px 0;
+            width: 100%;
+        }
+
+        /* Rest of your existing styles from the black container down */
+        .black-container {
+            align-items: center;
+            flex-direction: column;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            padding-bottom: 20px;
+            gap: 20px;
+            width: 100%;
+            margin-top: 10px;
+            height: auto;
+            position: relative;
+            overflow: hidden;
+            padding-left: 320px;
+            flex-direction: column;
+        }
+
+        .black-container img {
+            height: 400px;
+            width: auto;
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+        .logocon img{
+            left:230px;
+        }
+
+        .columns-wrapper {
+            display: flex;
+            gap: 120px;
+            margin-left: 490px;
+        }
+
+        .column {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .column a {
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            font-family: 'Poppins', sans-serif;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .column a:hover {
+            transform: scale(1.1);
+        }
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            margin-right: 310px;
+        }
+
+        .social-icons a {
+            display: flex;
+            width: 60px;
+            height: 60px;
+            transition: none;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .social-icons img {
+            width: 35px;
+            height: auto;
+            top: 260px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
+
+        
+
+        .properties-heading {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            /* Additional styling if needed */
+            margin: 20px 0; /* Example spacing */
+            text-align: center; /* Example alignment */
+            font-size: 520%;
+        }
+        
+        .form-container {
+            width: 100%;
+            max-width: 900px;
+            background-color: #111324;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px; /* ⬅️ Increased from default (if any) */
+        }
+
+        .form-group .input-box {
+            flex: 1 1 48%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width .input-box {
+            flex: 1 1 100%;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 20px;
+            color: #fff;
+            
+        }
+
+        input, select, textarea {
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ababab;
+            background-color: #1c1e2f;
+            color: #fff;
+            font-size: 15px;
+            resize: none;
+            transition: border 0.3s;
+            gap:20px;
+            
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+
+        textarea {
+            min-height: 100px;
+        }
+        .submit-button {
+            background-color: #4a90e2;
+            color: white;
+            padding: 14px 28px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover {
+            background-color: #367bd3;
+            transform: scale(1.05);
+        }
+        
+
+        
+
+        @media (max-width: 768px) {
+            .form-group .input-box {
+                flex: 1 1 100%;
+            }
+        }
+
+        /* Add all other property-related styles from your original CSS here */
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url('fonts/Poppins-Regular.woff2') format('woff2'),
+                url('fonts/Poppins-Regular.woff') format('woff'),
+                url('fonts/Poppins-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .home-button {
+            position: absolute;
+            right: 2%;
+            top: 2%;
+            
+            background: rgba(0, 0, 0, 0.399); /* Semi-transparent background */
+            color: #ffffff;
+            border: #ffffff;
+            padding: 18px 15px;
+            font-size: 18px;
+            
+            border-radius: 25px 25px 25px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.3);
+            
+            text-align: center;
+        }
+
+        .home-button:hover {
+            background-color: #000000;
+            
+        }
+        @media (max-width: 768px) {
+            .properties-header {
+                font-size: 36px;
+            }
+
+            .input-box {
+                flex: 1 1 100%;
+            }
+
+            /* Logo adjustments */
+            .top-left-logo {
+                top: -40px;
+                left: 0;
+            }
+            
+            .top-left-logo img {
+                height: 150px;
+            }
+
+            /* Footer (black container) */
+            .black-container {
+                padding: 20px 10px 30px;
+                height: auto;
+                padding-left: 10px;
+            }
+            
+            .black-container img {
+                height: 200px;
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                top: 0;
+                transform: none;
+                width:100%;
+            }
+            
+            .logocon img {
+                left: 0;
+            }
+            
+            .columns-wrapper {
+                flex-direction: column;
+                gap: 20px;
+                margin-left: 0;
+            }
+            
+            .column {
+                margin-top: 20px;
+                gap: 20px;
+            }
+            
+            .column a {
+                font-size: 18px;
+            }
+            
+            .social-icons {
+                margin-right: 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .social-icons a {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .social-icons img {
+                width: 25px;
+                height: auto;
+                top: auto;
+            }
+            
+            /* Logout button */
+            .home-button {
+                position: fixed;
+                padding: 12px 10px;
+                font-size: 14px;
+                right: 3%;
+                z-index: 1001;
+                top:2%;
+            }
+
+            .content{
+                padding-top: 20%;  
+               
+            }
+            .form-container{
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .properties-header {
+                font-size: 28px;
+            }
+
+            .submit-button {
+                width: 100%;
+            }
+
+            #custom-label {
+                width: 40%;
+                text-align: center;
+            }
+
+            .top-left-logo {
+                top: -20px;
+            }
+
+            .social-icons {
+                margin-right: 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .social-icons a {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .social-icons img {
+                width: 25px;
+                top: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-left-logo">
+        <img src="IMG_1387.PNG" alt="Sylvah Logo">
+    </div>
+    
+   
+
+    <div class="content">
+        <h1 class="properties-header">Schedule a Visit</h1>
+        <div class="form-container">
+            <form>
+                <div class="form-group">
+                    <div class="input-box">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-box">
+                    <label for="phone">Contact Number</label>
+                    <input type="tel" id="phone" placeholder="Your Phone Number" required>
+                    </div>
+                </div>
+            
+                <div class="form-group">
+                    <div class="input-box">
+                    <label for="Property ID">Property ID</label>
+                    <input type="text" id="PID" placeholder="Enter Property ID" required>
+                    </div>
+                    <div class="input-box">
+                    <label for="property-type">Property Type</label>
+                    <select id="property-type" required>
+                        <option value="">Select Property Type</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="villa">Villa</option>
+                        <option value="plot">Plot</option>
+                    </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-box">
+                    <label for="Preferred Date">Preferred Date</label>
+                    <input type="date" id="date" placeholder="" required>
+                    </div>
+                    <div class="input-box">
+                    <label for="time">Preferred Time</label>
+                    <select id="property-type" required>
+                        <option value="">Select time</option>
+                        <option value="Morning">Morning (9AM - 12AM)</option>
+                        <option value="Afternoon">Afternoon (12PM - 3PM)</option>
+                        <option value="Evening">Evening (3PM - 6PM)</option>
+                    </select>
+                    </div>
+                </div>
+            
+                <div class="form-group full-width">
+                    <div class="input-box">
+                    <label for="location">Property Location</label>
+                    <input type="text" id="location" placeholder="Property Address" required>
+                    </div>
+                </div>
+            
+                <div class="form-group full-width">
+                    <div class="input-box">
+                    <label for="details">Additional Comments</label>
+                    <textarea id="details" placeholder="Any specific requirements or questions (optional)"></textarea>
+                    </div>
+                </div>
+            
+                
+
+              <!-- ✅ Submit Button -->
+                <div class="form-group full-width" style="justify-content: center;">
+                    <button type="submit" class="submit-button">Schedule My Visit</button>
+                </div>
+            </form>
+        </div>
+        
+
+        <!-- Footer Section (same as your black-container) -->
+        <div class="black-container">
+            <div class="logocon">
+                <img src="IMG_1387.PNG" alt="Logo">
+            </div>
+            <div class="columns-wrapper">
+                <div class="column">
+                    <a href="wisg.html">What is Sylvah Group?</a>
+                    <a href="vision.html">Our vision</a>
+                </div>
+                <div class="column">
+                    <a href="whycus.html">Why choose us?</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/1BFcQUkLVa/?mibextid=wwXIfr" target="_blank">
+                    <img src="Facebook1.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/sylvah_group?igsh=cGg2NndnaHBic3o1" target="_blank">
+                    <img src="instagram1.png" alt="Instagram">
+                </a>
+                <a href="https://" target="_blank">
+                    <img src="x.png" alt="X">
+                </a>
+                <a href="mailto:Sylvahgroup@gmail.com">
+                    <img src="email1.png" alt="Email">
+                </a>
+                <a href="https://youtube.com/@sylvahgroup?si=dMRBmXQa262bGRyP" target="_blank">
+                    <img src="youtube2.png" alt="Youtube">
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- ✅ Vertical Home Button -->
+    <button class="home-button" onclick="window.location.href='sylvah.html'">Home</button>
+
+    <script>
+        
+    </script>
+</body>
+</html>
